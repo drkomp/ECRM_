@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.autocommit">false</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/e_crm_db</property>
+        <property name="connection.username">mysqluser</property>
+        <property name="connection.password">QO2C45mRGZCt</property>
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <mapping class="com.easycrm.contragents.Address"/>
+        <mapping class="com.easycrm.contragents.Chat"/>
+        <mapping class="com.easycrm.contragents.Client"/>
+        <mapping class="com.easycrm.contragents.Contragent"/>
+        <mapping class="com.easycrm.contragents.ContragentEvent"/>
+        <mapping class="com.easycrm.contragents.Email"/>
+        <mapping class="com.easycrm.contragents.Organization"/>
+        <mapping class="com.easycrm.contragents.Phone"/>
+        <mapping class="com.easycrm.contragents.WebSite"/>
+        <mapping class="com.easycrm.users.Eployee"/>
+        <mapping class="com.easycrm.users.User"/>
+        <mapping class="com.easycrm.users.LogonDetails"/>
+        <mapping class="com.easycrm.users.Manager"/>
+        <mapping class="com.easycrm.users.Master"/>
+        <mapping class="com.easycrm.users.Operator"/>
+        <mapping class="com.easycrm.users.Admin"/>
+
+    </session-factory>
+</hibernate-configuration>
