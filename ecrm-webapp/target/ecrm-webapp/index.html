@@ -1,10 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Easy-CRM</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dr.Komp - Качественный сервис компьютеной техники.</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
-<p>hello!</p>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">На главную</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">О нас</a>
+                    </li>
+                    <li>
+                        <a href="#">Услуги</a>
+                    </li>
+                    <li>
+                        <a href="#">Контакты</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#login-modal">Вход</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Dr.Komp</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Вход для сотрудников</h1><br>
+                <form>
+                    <input type="text" name="user" placeholder="Логин">
+                    <input type="password" name="pass" placeholder="Пароль">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Войти">
+                </form>
+
+                <div class="login-help">
+                    <a href="#">Регистрация</a> - <a href="#">Забыл пароль</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Кто мы</h2>
+                <p>Высоко квалифицированные специалисты, которые объединились чтобы предоставить Вам высокий уровень обслуживания и ремонота компьютерной техники.</p>
+                <p>В нашем распоряжении многолетний опыт, передовые технологии, лучшее оборудование и любовь к клиентам и своей професии.</p>
+                <p>
+                    <a class="btn btn-default btn-lg" href="#">Call to Action &raquo;</a>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Contact Us</h2>
+                <address>
+                    <strong>Dr.Komp</strong>
+                    <br>Харьков
+                    <br>Самая лучшая улица
+                    <br>
+                </address>
+                <address>
+                    <abbr title="Phone">P:</abbr>=38(067)706-71-50
+                    <br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:#">info@dr.komp</a>
+                </address>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-rounded img-responsive img-center" src="/pictures/repairman_s.jpg" alt="">
+                <h2>Ремонт на дому</h2>
+                <p>Ремонт и наладка компьютеной техники у Вас дома или в офисе. Все действия выполняются в вашем присутствии с комментариями специалиста в удобное для Вас время.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-rounded img-responsive img-center" src="/pictures/infrared_1.png" alt="">
+                <h2>Ремонт в мастерской</h2>
+                <p>Сложный ремонт техники, требующий специального оборудования производиться в мастерской.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-rounded img-responsive img-center" src="/pictures/sysadmin.jpg" alt="">
+                <h2>Услуги Сисадмина</h2>
+                <p>Высоко квалифицированные специалисты выполнят разработку сетевой инфраструктуры, настройку серверного и сетевого оборудования, а так же техническую поддержку.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Dr.Komp 2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
