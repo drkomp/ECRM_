@@ -1,6 +1,7 @@
-package com.easy.dao;
+package com.easycrm.dao;
 
-import com.easy.HibernateUtil;
+import com.easycrm.abstractdao.AbstractGenDao;
+import com.easycrm.hibernate.*;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
@@ -8,8 +9,8 @@ import java.sql.SQLException;
 /**
  * Created by drkomp on 03.10.2016.
  */
-public class GenericDao<Entity> implements AbstractGDao<Entity> {
-//if you need no fetch profile use fetchProfile=""
+public class GenericDao<Entity> implements AbstractGenDao<Entity> {
+
     @Override
     public Entity getItById(Class<Entity> clazz, long id) throws SQLException {
         Entity result = null;

@@ -1,9 +1,8 @@
-package com.easy;
+package com.easycrm.hibernate;
 
 import com.easycrm.contragents.*;
 import com.easycrm.users.*;
-
-import com.easy.dao.GenericDao;
+import com.easycrm.dao.*;
 
 
 public class Factory {

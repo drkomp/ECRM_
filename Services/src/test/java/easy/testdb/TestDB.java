@@ -1,7 +1,7 @@
 package easy.testdb;
 
-import com.easy.Factory;
-import com.easy.HibernateUtil;
+import com.easycrm.hibernate.Factory;
+import com.easycrm.hibernate.HibernateUtil;
 import com.easycrm.contragents.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
