@@ -9,5 +9,5 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "managers")
 public class Manager extends User {
-
+    {userType = "Manager";}
 }

@@ -8,11 +8,17 @@ import org.json.simple.JSONStreamAware;
  */
 public final class JSONResponses {
     public static final JSONStreamAware ERROR_INCORRECT_REQUEST;
+    public static final JSONStreamAware ERROR_LOGIN_OR_PASSWORD_INCORRECT;
 
     static {
         JSONObject response = new JSONObject();
         response.put("errorCode", 1);
         response.put("errorDescription", "Incorrect request");
         ERROR_INCORRECT_REQUEST = JSON.prepare(response);
+
+        response = new JSONObject();
+        response.put("errorCode", 2);
+        response.put("errorDescription", "Login failed! Login or password incorrect.");
+        ERROR_LOGIN_OR_PASSWORD_INCORRECT = JSON.prepare(response);
     }
 }

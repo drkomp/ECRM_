@@ -3,6 +3,8 @@ package easy.testdb;
 import com.easycrm.hibernate.Factory;
 import com.easycrm.hibernate.HibernateUtil;
 import com.easycrm.contragents.*;
+import com.easycrm.users.Employee;
+import com.easycrm.users.Master;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,7 +15,8 @@ import org.hibernate.Transaction;
  */
 public class TestDB {
     public static void main(String[] args) {
-        testAddOrgToClient();
+        testAddUser();
+        //testAddOrgToClient();
         //        testAddClient();
 //        HibernateUtil.getSessionFactory().close();
         System.out.println("After try");
@@ -46,10 +49,10 @@ public class TestDB {
 
         try (SessionFactory s = HibernateUtil.getSessionFactory()){
 //            Factory.getInstance().getPhoneDao().addIt(p1);
-//            Factory.getInstance().getaddressDao().addIt(a1);
+//            Factory.getInstance().getAddressDao().addIt(a1);
 //            Phone ppp= Factory.getInstance().getPhoneDao().getItById(Phone.class,1);
 //            System.out.println(ppp.getId()+" phone=  "+ ppp.getPhone()+ " type="+ppp.getType());
-            Factory.getInstance().getclientDao().addIt(client1);
+            Factory.getInstance().getClientDao().persistIt(client1);
 
         }
         catch (Exception e){
@@ -64,18 +67,19 @@ public class TestDB {
             try(Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
                 Transaction tx =  HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
 
-                Organization o1 = Factory.getInstance().getOrganizationDao().getItById(Organization.class, 6);
+                Organization o1 = Factory.getInstance().getOrganizationDao().getItById( 6);
 //            Factory.getInstance().getaOrganizationDao().addIt(o1);
 
-                Client cl1 = Factory.getInstance().getclientDao().getItById(Client.class, 2);
+                Client cl1 = Factory.getInstance().getClientDao().getItById( 2);
                 System.out.println("before update org");
 //                cl1.getOrganizations().add(o1);
                 o1.getClients().add(cl1);
                 cl1.setNotes("Updated new notes!");
                 System.out.println("client ID=" + cl1.getId());
-                Factory.getInstance().getclientDao().updateIt(cl1);
-                Factory.getInstance().getOrganizationDao().updateIt(o1);
+                Factory.getInstance().getClientDao().mergeIt(cl1);
+                Factory.getInstance().getOrganizationDao().mergeIt(o1);
                 tx.commit();
+                Class.forName("User").newInstance();
             }
 
         }
@@ -91,8 +95,12 @@ public class TestDB {
         try (SessionFactory s = HibernateUtil.getSessionFactory()){
             try(Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
                 Transaction tx =  HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-
-
+                Employee em = new Employee().setName("Юрий").setSurname("Молоток").setPatronymic("Федорович")
+                        .setPosition("техник");
+                Master master = new Master().setBaned(false).setNickName("molotok")
+                        .setPassword("MasterPassword").setEmployee(em);
+                em.getUsers().add(master);
+                Factory.getInstance().getMasterDao().persistIt(master);
 
                 tx.commit();
             }

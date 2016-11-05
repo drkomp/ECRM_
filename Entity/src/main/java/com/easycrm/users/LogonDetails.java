@@ -37,39 +37,48 @@ public class LogonDetails {
         return id;
     }
 
-    public void setId(long id) {
+    public LogonDetails setId(long id) {
         this.id = id;
+        return this;
     }
 
     public User getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public LogonDetails setUser(User user) {
         this.user = user;
+        return this;
+
     }
 
     public String getKey() {
         return key;
     }
 
-    public void setKey(String key) {
+    public LogonDetails setKey(String key) {
         this.key = key;
+        return this;
+
     }
 
     public Date getLogonDate() {
         return logonDate;
     }
 
-    public void setLogonDate(Date logonDate) {
+    public LogonDetails setLogonDate(Date logonDate) {
         this.logonDate = logonDate;
+        return this;
+
     }
 
     public Date getLastActivity() {
         return lastActivity;
     }
 
-    public void setLastActivity(Date lastActivity) {
+    public LogonDetails setLastActivity(Date lastActivity) {
         this.lastActivity = lastActivity;
+        return this;
+
     }
 }

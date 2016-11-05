@@ -9,4 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "admins")
 public class Admin extends User {
+    {
+        userType = "Admin";
+    }
 }

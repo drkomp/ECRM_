@@ -23,7 +23,7 @@
         <mapping class="com.easycrm.contragents.Organization"/>
         <mapping class="com.easycrm.contragents.Phone"/>
         <mapping class="com.easycrm.contragents.WebSite"/>
-        <mapping class="com.easycrm.users.Eployee"/>
+        <mapping class="com.easycrm.users.Employee"/>
         <mapping class="com.easycrm.users.User"/>
         <mapping class="com.easycrm.users.LogonDetails"/>
         <mapping class="com.easycrm.users.Manager"/>

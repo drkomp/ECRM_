@@ -1,5 +1,6 @@
 package com.easycrm.controller;
 
+import com.easycrm.hibernate.HibernateUtil;
 import com.easycrm.utils.JSON;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONStreamAware;
@@ -20,6 +21,18 @@ import static com.easycrm.utils.JSONResponses.ERROR_INCORRECT_REQUEST;
  * Created by cube on 20.08.2016.
  */
 public class APIHandlerServlet extends HttpServlet{
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        HibernateUtil.getSessionFactory();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        HibernateUtil.getSessionFactory().close();
+    }
+
     public abstract static class APIRequestHandler {
 
         protected abstract JSONStreamAware processRequest(HttpServletRequest request) throws Exception;
@@ -86,7 +99,6 @@ public class APIHandlerServlet extends HttpServlet{
                 response.writeJSONString(writer);
             }
         }
-
     }
 
 }

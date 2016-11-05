@@ -1,16 +1,18 @@
 package com.easycrm.hibernate;
 
+import com.easycrm.abstractdao.GenericHibernateDao;
 import com.easycrm.contragents.*;
-import com.easycrm.users.*;
 import com.easycrm.dao.*;
+import com.easycrm.users.*;
 
 
 public class Factory {
-    private static GenericDao<Phone> phoneDao = null;
-    private static GenericDao<Address> addressDao = null;
-    private static GenericDao<Client> clientDao = null;
-    private static GenericDao<Organization> orgDao = null;
-    private static GenericDao<User> userDao = null;
+    private static GenericHibernateDao<Phone> phoneDao = null;
+    private static GenericHibernateDao<Address> addressDao = null;
+    private static GenericHibernateDao<Client> clientDao = null;
+    private static GenericHibernateDao<Organization> orgDao = null;
+    private static GenericHibernateDao<User> userDao = null;
+    private static GenericHibernateDao<Master> masterDao = null;
     private static Factory instance = null;
 
     public static synchronized Factory getInstance(){
@@ -20,37 +22,43 @@ public class Factory {
         return instance;
     }
 
-    public  GenericDao<User> getuserDao(){
+    public GenericHibernateDao<Master> getMasterDao(){
+        if (masterDao == null){
+            masterDao = new MasterDAOHibernate();
+        }
+        return masterDao;
+    }
+    public GenericHibernateDao<User> getUserDao(){
         if (userDao == null){
-            userDao = new GenericDao<User>();
+            userDao = new UserDAOHibernate();
         }
         return userDao;
     }
 
-    public  GenericDao<Phone> getPhoneDao(){
+    public GenericHibernateDao<Phone> getPhoneDao(){
         if (phoneDao == null){
-            phoneDao = new GenericDao<Phone>();
+            phoneDao = new PhoneDAOHibernate();
         }
         return phoneDao;
     }
 
-    public  GenericDao<Address> getaddressDao(){
+    public GenericHibernateDao<Address> getAddressDao(){
         if (addressDao == null){
-            addressDao = new GenericDao<Address>();
+            addressDao = new AddressDAOHibernate();
         }
         return addressDao;
     }
 
-    public  GenericDao<Client> getclientDao(){
+    public GenericHibernateDao<Client> getClientDao(){
         if (clientDao == null){
-            clientDao = new GenericDao<Client>();
+            clientDao = new ClientDAOHibernate();
         }
         return clientDao;
     }
 
-    public  GenericDao<Organization> getOrganizationDao(){
+    public GenericHibernateDao<Organization> getOrganizationDao(){
         if (orgDao == null){
-            orgDao = new GenericDao<Organization>();
+            orgDao = new OrganizationDAOHibernate();
         }
         return orgDao;
     }
