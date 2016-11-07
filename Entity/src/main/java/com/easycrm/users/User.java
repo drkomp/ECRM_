@@ -21,7 +21,7 @@ public class User {
     protected String password;
    @Column(name = "is_baned")
     protected boolean isBaned;
-   @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+   @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     protected LogonDetails logonDetails;
 
    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)

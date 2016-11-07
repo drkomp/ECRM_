@@ -2,6 +2,7 @@ package com.easycrm.controller;
 
 import com.easycrm.hibernate.Factory;
 import com.easycrm.hibernate.HibernateUtil;
+import com.easycrm.users.LogonDetails;
 import com.easycrm.users.User;
 import com.easycrm.utils.JSONResponses;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -44,10 +45,16 @@ public class LoginServlet extends APIHandlerServlet.APIRequestHandler {
                     String md5Hex = DigestUtils.md5Hex(tokenString);
           //System.out.println(md5Hex);
                     User logedUser = users.get(0);
-                    logedUser.getLogonDetails().setKey(md5Hex).setLogonDate(new Date())
-                            .setLastActivity(new Date()).setUser(logedUser);
+                    if(logedUser.getLogonDetails() == null) {
+                        logedUser.setLogonDetails(new LogonDetails().setKey(md5Hex).setLogonDate(new Date())
+                                .setLastActivity(new Date()).setUser(logedUser));
+                    }
+                    else {
+                        md5Hex = logedUser.getLogonDetails().getKey();
+                    }
                     session.flush();
                     jsonObject.put("key", md5Hex);
+                    jsonObject.put("result","")
                 }
                 else{ //login failed!
                     return JSONResponses.ERROR_LOGIN_OR_PASSWORD_INCORRECT;
