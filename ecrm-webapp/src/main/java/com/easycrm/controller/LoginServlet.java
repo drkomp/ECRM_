@@ -54,7 +54,7 @@ public class LoginServlet extends APIHandlerServlet.APIRequestHandler {
                     }
                     session.flush();
                     jsonObject.put("key", md5Hex);
-                    jsonObject.put("result","")
+                    jsonObject.put("result","ok");
                 }
                 else{ //login failed!
                     return JSONResponses.ERROR_LOGIN_OR_PASSWORD_INCORRECT;

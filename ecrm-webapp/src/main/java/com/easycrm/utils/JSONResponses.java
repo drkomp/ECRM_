@@ -12,11 +12,13 @@ public final class JSONResponses {
 
     static {
         JSONObject response = new JSONObject();
+        response.put("result","error");
         response.put("errorCode", 1);
         response.put("errorDescription", "Incorrect request");
         ERROR_INCORRECT_REQUEST = JSON.prepare(response);
 
         response = new JSONObject();
+        response.put("result","error");
         response.put("errorCode", 2);
         response.put("errorDescription", "Login failed! Login or password incorrect.");
         ERROR_LOGIN_OR_PASSWORD_INCORRECT = JSON.prepare(response);
