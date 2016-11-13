@@ -34,5 +34,10 @@
     <orderEntry type="library" name="Maven: org.glassfish.web:javax.el:2.2.4" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:2.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator-cdi:5.2.4.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.10" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b01" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:20041127.091804" level="project" />
   </component>
 </module>
