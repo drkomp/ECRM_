@@ -2,9 +2,10 @@ package com.easycrm.abstractdao;
 
 import com.easycrm.hibernate.HibernateUtil;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
+//import org.hibernate.Session;
 import org.hibernate.criterion.Example;
 
+import javax.persistence.EntityManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -27,14 +28,14 @@ public abstract class GenericHibernateDao<Entity> implements GenericDao<Entity> 
     @Override
     public Entity getItById( long id) throws SQLException {
         Entity result = null;
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        result = (Entity) (session.get(getPersistentClass(), id));
+        EntityManager session = HibernateUtil.getSessionFactory().getCurrentSession();
+        result = session.find(getPersistentClass(), id);
         return result;
     }
 
     @Override
-    public List findItByExample(Entity exampleInstance, String[] excludeProperty) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    public List<Entity> findItByExample(Entity exampleInstance, String[] excludeProperty) {
+        EntityManager session = HibernateUtil.getSessionFactory().getCurrentSession();
         Criteria crit = session.createCriteria(getPersistentClass());
         Example example =  Example.create(exampleInstance);
         for (String exclude : excludeProperty) {
@@ -45,29 +46,28 @@ public abstract class GenericHibernateDao<Entity> implements GenericDao<Entity> 
     }
 
     @Override
-    public List findItByField(String fieldName, String fieldValue) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    public List<Entity> findItByField(String fieldName, String fieldValue) {
+        EntityManager session = HibernateUtil.getSessionFactory().getCurrentSession();
         return session.createQuery("select item from "+getPersistentClass().getName()+
-                " item where item."+fieldName+"= :filed_type")
-                .setParameter("filed_type",fieldValue).list();
-
+                " item where item."+fieldName+"= :filed_type",getPersistentClass())
+                .setParameter("filed_type",fieldValue).getResultList();
     }
 
     @Override
     public Entity mergeIt(Entity entity) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-            return (Entity) session.merge(entity);
+        EntityManager session = HibernateUtil.getSessionFactory().getCurrentSession();
+            return session.merge(entity);
     }
 
     @Override
     public void persistIt(Entity entity) throws SQLException {
-            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            EntityManager session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.persist(entity);
     }
 
     @Override
     public void removeIt(Entity entity) throws SQLException {
-            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            EntityManager session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.remove(entity);
     }
 

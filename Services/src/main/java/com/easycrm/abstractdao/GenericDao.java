@@ -9,9 +9,9 @@ import java.util.List;
 public interface GenericDao<Entity> {
      Entity getItById( long id) throws SQLException;
 
-     List findItByExample(Entity exampleInstance, String[] excludeProperty);
+     List<Entity> findItByExample(Entity exampleInstance, String[] excludeProperty);
 
-    List findItByField(String fieldName, String fieldValue);
+    List<Entity> findItByField(String fieldName, String fieldValue);
 
    // void addIt(Entity entity)throws SQLException;
      Entity mergeIt(Entity entity)throws SQLException;
